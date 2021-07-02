@@ -41,3 +41,5 @@ This file is submitted as part of Assignment 8 for EVA6 Course
 ---
 ## References
 
+* https://medium.com/@stepanulyanin/implementing-grad-cam-in-pytorch-ea0937c31e82
+
