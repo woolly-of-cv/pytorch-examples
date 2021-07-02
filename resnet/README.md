@@ -3,7 +3,7 @@
 
 This file is submitted as part of Assignment 8 for EVA6 Course
 
-### Highlites
+### Highlights
 * Written a liberary to abstract model building, training and visualization code
 * Trained ResNet18 from scratch to reach 91% accuracy
 * Used Augumentation Techniques like CutOut, PadAndCrop, RICAP
@@ -18,11 +18,11 @@ This file is submitted as part of Assignment 8 for EVA6 Course
 * [Srikanth Kandarp](https://github.com/Srikanth-Kandarp)
 ---
 ## Table of Contents
-  - [Installation](#Installation)
+  - [Installation](#installation)
   - [About the Model](#about-the-model)
   - [Techniques Used](#techniques-used)
-  - [Graphs](#-graphs)
-  - [Images](#-images)
+  - [Graphs](#graphs)
+  - [Images](#images)
   - [References](#references)
   
 
