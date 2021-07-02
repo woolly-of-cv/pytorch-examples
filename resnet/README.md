@@ -3,10 +3,7 @@
 
 This file is submitted as part of Assignment 8 for EVA6 Course
 
-### Highlights
 
-
----
 ## Contributors
 
 * [Ammar Adil](https://github.com/adilsammar)
@@ -15,12 +12,59 @@ This file is submitted as part of Assignment 8 for EVA6 Course
 * [Srikanth Kandarp](https://github.com/Srikanth-Kandarp)
 ---
 ## Table of Contents
+  - [Installation](#Installation)
   - [About the Model](#about-the-model)
   - [Techniques Used](#techniques-used)
   - [Graphs](#-graphs)
   - [Images](#-images)
   - [References](#references)
   
+
+---
+## Installation
+
+We made a python library for using this our resources very easily. Just install it and call the function.
+
+```
+pip install woollylib
+```
+
+### Project Structure 
+
+```bash
+├── woollylib
+│   ├── models
+│   │     ├── model.py
+│   │     └──  resnet.py
+│   ├── utils
+│   │    ├── gradcam
+│   │    │   ├── _init_.py
+│   │    │   ├── compute.py
+│   │    │   ├── gradcam.py
+│   │    │   └── util.py   
+│   │    │
+│   │    ├── transform.py 
+│   │    ├── utils.py 
+│   │    └── visualize.py 
+│   │ 
+│   ├── _init_.py
+│   ├── backpropagation.py
+│   ├── dataset.py
+│   ├── main.py
+│   ├── scheduler.py
+│   └──training.py
+│   
+├── setup.py
+├── LICENSE
+├── CHANGELOG.txt
+├── MANIFEST.IN
+├── README.txt
+├── requirements.txt
+├── .gitignore
+└── README.md
+```
+
+
 
 ---
 ## About the Model 
