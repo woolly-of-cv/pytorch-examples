@@ -75,7 +75,7 @@ pip install woollylib
 
   In the above plot, we can observe that a 56-layer CNN gives more error rate on both training and testing dataset than a 20-layer CNN architecture, If this was the result of over fitting, then we should have lower training error in 56-layer CNN but then it also has higher training error. After analyzing more on error rate the authors were able to reach conclusion that it is caused by vanishing/exploding gradient.
 
-  ResNet, which was proposed in 2015 by  Microsoft that introduced a new architecture called Residual Network.
+  ResNet, which was proposed in 2015 by Microsoft introduced a new architecture called Residual Network.
 
 
 * ### How does this model work ?
