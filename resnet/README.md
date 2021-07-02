@@ -20,7 +20,7 @@ This file is submitted as part of Assignment 8 for EVA6 Course
 - [Techniques Applied](#techniques-used)
 - [Graphs](#graphs)
 - [Images](#-images)
-- [REferences](#references)
+- [References](#references)
 - 
 
 ---
