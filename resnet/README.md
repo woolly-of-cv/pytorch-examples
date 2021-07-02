@@ -29,6 +29,8 @@ We made a python library for using this our resources very easily. Just install 
 pip install woollylib
 ```
 
+URL : https://pypi.org/project/woollylib/
+
 ### Project Structure 
 
 ```bash
@@ -232,11 +234,38 @@ pip install woollylib
 
 ---
 ## Graphs 
----
 
+* Learning Rate : 0.05
+
+
+* Total Number of Epochs : 20
+
+
+* Total Parameters: 11,173,962
+
+
+* Training Accuracy : 87.38  % 
+
+
+* Final Accuracy : 91.0 %
+
+  <image src='assets/Graphs.png'>
 ## Images
 ---
+### Random Cutout
+
+
+  <image src='assets/Random_Cutout.png'>
+
+  --- 
+### Missclassified Images with GradCam 
+
+  <image src='assets/GradCam.png'>
+    <image src='assets/GradCam1.png'>
+
+--- 
 ## References
 
 * https://medium.com/@stepanulyanin/implementing-grad-cam-in-pytorch-ea0937c31e82
 
+  
