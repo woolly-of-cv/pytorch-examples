@@ -46,12 +46,9 @@ This file is submitted as part of Assignment 8 for EVA6 Course
 
     This results in a coarse heatmap of the same size as that of the convolutional feature maps. We apply ReLU to the linear combination because we are only interested in the features that have a positive influence on the class of interest. Without ReLU, the class activation map highlights more than that is required and hence achieve low localization performance.
 
-  * Pipeline Architechture 
-
-
+  * ### Pipeline Architechture 
     <image src='assets/Pipeline_arch.png' >
 
-  
   * <b> Pytorch Implementation </b> 
       ```python
       Pending... 
