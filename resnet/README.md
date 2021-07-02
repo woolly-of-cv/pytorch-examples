@@ -8,6 +8,7 @@ This file is submitted as part of Assignment 8 for EVA6 Course
 * Trained ResNet18 from scratch to reach 91% accuracy
 * Used Augumentation Techniques like CutOut, PadAndCrop, RICAP
 * Used OneCycle Leraning Rate Scheduler
+* Used GradCAM to disect model and see what model is looking at
 
 ## Contributors
 
