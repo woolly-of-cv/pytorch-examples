@@ -3,6 +3,11 @@
 
 This file is submitted as part of Assignment 8 for EVA6 Course
 
+### Highlites
+* Written a liberary to abstract model building, training and visualization code
+* Trained ResNet18 from scratch to reach 91% accuracy
+* Used Augumentation Techniques like CutOut, PadAndCrop, RICAP
+* Used OneCycle Leraning Rate Scheduler
 
 ## Contributors
 
