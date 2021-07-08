@@ -4,24 +4,7 @@ This file is submitted as part of Assignment 9 for EVA6 Course
 
 **Highlights**
 
-
-### Table of Contents
-
-- [This article talks about training of custom ResNet architecture for CIFAR 10](#this-article-talks-about-training-of-custom-resnet-architecture-for-cifar-10)
-    - [Table of Contents](#table-of-contents)
-    - [Contributors](#contributors)
-    - [Model Architecture](#model-architecture)
-    - [Convolution Techniques Explained](#convolution-techniques-explained)
-      - [Custom Resnet](#custom-resnet)
-      - [Loss Smooth](#loss-smooth)
-      - [Grad Scaler](#grad-scaler)
-    - [Transformations and Albumentations](#transformations-and-albumentations)
-    - [Graphs](#graphs)
-    - [Visualization for misclassified predictions](#visualization-for-misclassified-predictions)
-    - [Code Explanation](#code-explanation)
-    - [References:](#references)
-
-### Contributors
+## Contributors
 
 * [Ammar Adil](https://github.com/adilsammar)
 * [Krithiga](https://github.com/BottleSpink)
@@ -29,12 +12,34 @@ This file is submitted as part of Assignment 9 for EVA6 Course
 * [Srikanth Kandarp](https://github.com/Srikanth-Kandarp)
 
 ---
-### Model Architecture
+
+### Table of Contents
+- [Installation](#installation)
+- [About the Model](#about-the-model)
+- [Techniques Used](#techniques-used)
+  - [GradCam](#gradcam)
+  - [Custom Resnet](#custom-resnet)
+  - [Loss Smooth](#loss-smooth)
+  - [Grad Scaler](#grad-scaler)
+- [Graphs](#graphs)
+- [Images](#images)
+- [References:](#references)
+
+___
+### Installation
+
+___
+
+### About the Model
 
 **Overview:**
 
 ---
-### Convolution Techniques Explained
+### Techniques Used
+
+
+#### GradCam
+
 
 #### Custom Resnet
 
@@ -44,24 +49,16 @@ This file is submitted as part of Assignment 9 for EVA6 Course
 
 #### Grad Scaler
 
-
----
-
-### Transformations and Albumentations
-
 ---
 
 ### Graphs
 
 ---
 
-### Visualization for misclassified predictions
+### Images
 
 ---
 
-### Code Explanation
-
----
 ### References:
 
 ---
