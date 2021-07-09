@@ -95,7 +95,7 @@ ___
 
 
 
- <image src='assets/Custom_ResNet.jpg'>
+ <image src='assets/Custom_resnet.png'>
 
 ---
 ## Techniques Used
