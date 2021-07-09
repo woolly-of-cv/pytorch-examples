@@ -276,4 +276,4 @@ we would have had all the points concentrated near the end (since lrN−1 is muc
 * https://docs.nvidia.com/deeplearning/performance/mixed-precision-training/index.html
 * https://towardsdatascience.com/what-is-label-smoothing-108debd7ef06	
 * https://stackoverflow.com/questions/55681502/label-smoothing-in-pytorch
-
+* https://sgugger.github.io/how-do-you-find-a-good-learning-rate.html#how-do-you-find-a-good-learning-rate
