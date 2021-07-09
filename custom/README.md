@@ -91,9 +91,11 @@ URL : https://pypi.org/project/woollylib/
 
 ___
 
-### About the Model
+## Model Architechture
 
-**Overview:**
+
+
+ <image src='assets/Custom_ResNet.jpg'>
 
 ---
 ## Techniques Used
