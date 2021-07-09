@@ -93,9 +93,9 @@ ___
 ## Model Architechture
 
 
-
+<p align="center">
  <image src='assets/custom_resnet.png'>
-
+</p>
 ---
 ## Techniques Used
 
@@ -106,11 +106,13 @@ ___
     CAM known as Grad-Cam. Grad-Cam published in 2017, aims to improve the shortcomings of CAM and claims to be compatible with any kind of architecture. This technique does not require any modifications to the existing model architecture and this allows it to apply to any CNN based architecture, including those for image captioning and visual question answering. For fully-convolutional architecture, the Grad-Cam reduces to CAM.
   * ### How do we solve this ?
     Grad-Cam, unlike CAM, uses the gradient information flowing into the last convolutional layer of the CNN to understand each neuron for a decision of interest. To obtain the class discriminative localization map of width u and height v for any class c, we first compute the gradient of the score for the class c, yc (before the softmax) with respect to feature maps Ak of a convolutional layer. These gradients flowing back are global average-pooled to obtain the neuron importance weights ak for the target class.
-
+	
+<p align="center">
     <image src='assets/Weights_1.png'>
 
     After calculating ak for the target class c, we perform a weighted combination of activation maps and follow it by ReLU.
-
+	    
+<p align="center">
     <image src='assets/Linear_Combination.png' width="45%" height="45%" >
 
     This results in a coarse heatmap of the same size as that of the convolutional feature maps. We apply ReLU to the linear combination because we are only interested in the features that have a positive influence on the class of interest. Without ReLU, the class activation map highlights more than that is required and hence achieve low localization performance.
@@ -146,14 +148,18 @@ ___
 	16-bit precision may not always be enough for some computations. One particular case of interest is representing gradient values, a great portion of which are usually small values. Representing them with 16-bit floats often leads to buffer underflows (i.e. they’d be represented as zeros). This makes training neural networks very unstable. GradScalar is designed to resolve this issue. It takes as input your loss value and multiplies it by a large scalar, inflating gradient values, and therefore making them represnetable in 16-bit precision. It then scales them down during gradient update to ensure parameters are updated correctly. This is generally what GradScalar does. But under the hood GradScalar is a bit smarter than that. Inflating the gradients may actually result in overflows which is equally bad. So GradScalar actually monitors the gradient values and if it detects overflows it skips updates, scaling down the scalar factor according to a configurable schedule. (The default schedule usually works but we may need to adjust that for our use case.)
 
 	Using GradScalar is very easy in practice:
+	    
+	    <p align="center">
 <image src='assets/gradscaler.png' >
+	
+	
 	Note that we first create an instance of GradScalar. In training loop we call GradScalar.scale to scale the loss before calling backward to produce inflated gradients, we then use GradScalar.step which (may) update the model parameters. We then call GradScalar.update which performs the scalar update if needed. 
 
 ## How do you decide on a learning rate?
 
 Let's start, now the question is how do you decide the learning rate right ? the answer would be if it's too slow, your neural net is going to take forever to learn. But if it's too high, each step you take will go over the minimum and you'll never get to an acceptable loss. Worse case is, a high learning rate could lead you to an increasing loss until it reaches null value. Now you might think why is this happening ? the theory says that If your gradients are really high, then a high learning rate is going to take you to a spot that's so far away from the minimum you will probably be worse than before in terms of loss. Even on something as simple as a parabola, see how a high learning rate quickly gets you further and further away from the minima.
 
-
+<p align="center">
 <image src='assets/Lr_1.png' >
 
 So we have to pick exactly the right value, not too high and not too low. For a long time, it's been a game of try and see, but in this article another approach is presented. Over an epoch begin your SGD with a very low learning rate (like 10−8
