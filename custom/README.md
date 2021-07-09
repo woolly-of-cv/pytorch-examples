@@ -116,13 +116,13 @@ ___
     <image src='assets/Weights_1.png'>
 </p>
 	
-    After calculating ak for the target class c, we perform a weighted combination of activation maps and follow it by ReLU.
+After calculating ak for the target class c, we perform a weighted combination of activation maps and follow it by ReLU.
 	    
 <p align="center">
     <image src='assets/Linear_Combination.png' width="45%" height="45%" >
 </p>
 	
-    This results in a coarse heatmap of the same size as that of the convolutional feature maps. We apply ReLU to the linear combination because we are only interested in the features that have a positive influence on the class of interest. Without ReLU, the class activation map highlights more than that is required and hence achieve low localization performance.
+This results in a coarse heatmap of the same size as that of the convolutional feature maps. We apply ReLU to the linear combination because we are only interested in the features that have a positive influence on the class of interest. Without ReLU, the class activation map highlights more than that is required and hence achieve low localization performance.
 
 
 ### Label Smoothing 
@@ -160,7 +160,7 @@ ___
 <image src='assets/gradscaler.png' >
 </p>	
 	
-	Note that we first create an instance of GradScalar. In training loop we call GradScalar.scale to scale the loss before calling backward to produce inflated gradients, we then use GradScalar.step which (may) update the model parameters. We then call GradScalar.update which performs the scalar update if needed. 
+Note that we first create an instance of GradScalar. In training loop we call GradScalar.scale to scale the loss before calling backward to produce inflated gradients, we then use GradScalar.step which (may) update the model parameters. We then call GradScalar.update which performs the scalar update if needed. 
 
 ## How do you decide on a learning rate?
 
