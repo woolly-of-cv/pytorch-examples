@@ -352,5 +352,7 @@ lr
 ---
 
 ### References:
-
+* https://medium.com/@stepanulyanin/implementing-grad-cam-in-pytorch-ea0937c31e82
+* https://docs.nvidia.com/deeplearning/performance/mixed-precision-training/index.html
+* https://towardsdatascience.com/what-is-label-smoothing-108debd7ef06	
 ---
