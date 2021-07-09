@@ -3,6 +3,10 @@
 This file is submitted as part of Assignment 9 for EVA6 Course
 
 **Highlights**
+* Trained a custom form of ResNet to reach **93.95%** accuracy
+* Uses Mixed Precision Training to reduce training time from `54s` per epoch to `12s` per epoch
+* Used Lable Smoothing to improve model convergence
+* One Cycle LR to get faster convergence
 
 ## Contributors
 
