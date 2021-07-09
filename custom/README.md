@@ -109,7 +109,7 @@ ___
 
     After calculating ak for the target class c, we perform a weighted combination of activation maps and follow it by ReLU.
 
-    <image src='assets/Linear_Combination.png' >
+    <image src='assets/Linear_Combination.png' width="45%" height="45%" >
 
     This results in a coarse heatmap of the same size as that of the convolutional feature maps. We apply ReLU to the linear combination because we are only interested in the features that have a positive influence on the class of interest. Without ReLU, the class activation map highlights more than that is required and hence achieve low localization performance.
 
@@ -342,10 +342,12 @@ lr
 
 ---
 ### Graphs
+<image src='assets/graph.png' >
 
 ---
 
 ### Images
+<image src='assets/images.png' >
 
 ---
 
