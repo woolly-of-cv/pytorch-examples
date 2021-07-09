@@ -157,7 +157,7 @@ ___
 
 #### Grad Scaler
 
-<image src='assets/gradscale.png' >
+<image src='assets/gradscaler.png' >
 
 ---
 
