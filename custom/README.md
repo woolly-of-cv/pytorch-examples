@@ -15,7 +15,7 @@ This file is submitted as part of Assignment 9 for EVA6 Course
 
 ### Table of Contents
 - [Installation](#installation)
-- [About the Model](#about-the-model)
+- [Model Architechture](#model-architechture)
 - [Techniques Used](#techniques-used)
   - [GradCam](#gradcam)
   - [Label Smoothing](#label-smoothing)
