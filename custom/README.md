@@ -152,8 +152,12 @@ ___
 
 #### Loss Smooth
 
+<image src='assets/Loss.png' >
+
 
 #### Grad Scaler
+
+<image src='assets/gradscale.png' >
 
 ---
 
