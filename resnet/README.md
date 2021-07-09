@@ -39,11 +39,29 @@ URL : https://pypi.org/project/woollylib/
 
 ### Project Structure 
 
-```bash
+```
 ├── woollylib
+│   ├── bp
+│   │   ├── autocast
+│   │   │     └── backpropagation.py   
+│   │   ├── losses
+│   │   │     └── backpropagation.py  
+│   │   ├── optimizer
+│   │   │     └── backpropagation.py  
+│   │   ├── ricap
+│   │   │     └── backpropagation.py   
+│   │   └── vanila  
+│   │         └── backpropagation.py   
+│   │ 
 │   ├── models
-│   │     ├── model.py
-│   │     └──  resnet.py
+│   │   ├── custom
+│   │   │     └── custom_resnet.py 
+│   │   ├── model.py
+│   │   └── resnet.py
+│   │ 
+│   ├── preloading
+│   │    └── dataset.py 
+│   │ 
 │   ├── utils
 │   │    ├── gradcam
 │   │    │   ├── _init_.py
@@ -56,7 +74,6 @@ URL : https://pypi.org/project/woollylib/
 │   │    └── visualize.py 
 │   │ 
 │   ├── _init_.py
-│   ├── backpropagation.py
 │   ├── dataset.py
 │   ├── main.py
 │   ├── scheduler.py
@@ -64,7 +81,6 @@ URL : https://pypi.org/project/woollylib/
 │   
 ├── setup.py
 ├── LICENSE
-├── CHANGELOG.txt
 ├── MANIFEST.IN
 ├── README.txt
 ├── requirements.txt
