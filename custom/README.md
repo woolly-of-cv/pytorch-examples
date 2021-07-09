@@ -256,6 +256,7 @@ we would have had all the points concentrated near the end (since lrN−1 is muc
 <p align="center">
 <image src='assets/graph.png' >
 </p>
+	
 ---
 
 ### Images
@@ -263,6 +264,7 @@ we would have had all the points concentrated near the end (since lrN−1 is muc
 <p align="center">
 <image src='assets/images.png' >
 </p>
+	
 ---
 
 ### References:
