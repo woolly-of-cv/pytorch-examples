@@ -144,14 +144,14 @@ ___
 
 
 ### Grad Scaler
- * ## Introduction 
+ * ### Introduction 
 	16-bit precision may not always be enough for some computations. One particular case of interest is representing gradient values, a great portion of which are usually small values. Representing them with 16-bit floats often leads to buffer underflows (i.e. they’d be represented as zeros). This makes training neural networks very unstable. GradScalar is designed to resolve this issue. It takes as input your loss value and multiplies it by a large scalar, inflating gradient values, and therefore making them represnetable in 16-bit precision. It then scales them down during gradient update to ensure parameters are updated correctly. This is generally what GradScalar does. But under the hood GradScalar is a bit smarter than that. Inflating the gradients may actually result in overflows which is equally bad. So GradScalar actually monitors the gradient values and if it detects overflows it skips updates, scaling down the scalar factor according to a configurable schedule. (The default schedule usually works but we may need to adjust that for our use case.)
 
 	Using GradScalar is very easy in practice:
 <image src='assets/gradscaler.png' >
 	Note that we first create an instance of GradScalar. In training loop we call GradScalar.scale to scale the loss before calling backward to produce inflated gradients, we then use GradScalar.step which (may) update the model parameters. We then call GradScalar.update which performs the scalar update if needed. 
 
-### How do you decide on a learning rate?
+## How do you decide on a learning rate?
 
 Let's start, now the question is how do you decide the learning rate right ? the answer would be if it's too slow, your neural net is going to take forever to learn. But if it's too high, each step you take will go over the minimum and you'll never get to an acceptable loss. Worse case is, a high learning rate could lead you to an increasing loss until it reaches null value. Now you might think why is this happening ? the theory says that If your gradients are really high, then a high learning rate is going to take you to a spot that's so far away from the minimum you will probably be worse than before in terms of loss. Even on something as simple as a parabola, see how a high learning rate quickly gets you further and further away from the minima.
 
