@@ -18,7 +18,6 @@ This file is submitted as part of Assignment 9 for EVA6 Course
 - [About the Model](#about-the-model)
 - [Techniques Used](#techniques-used)
   - [GradCam](#gradcam)
-  - [Custom Resnet](#custom-resnet)
   - [Label Smoothing](#label-smoothing)
   - [Grad Scaler](#grad-scaler)
   - [How do you decide on a learning rate](#how-do-you-decide-on-a-learning-rate)
@@ -115,9 +114,6 @@ ___
     <image src='assets/Linear_Combination.png' width="45%" height="45%" >
 
     This results in a coarse heatmap of the same size as that of the convolutional feature maps. We apply ReLU to the linear combination because we are only interested in the features that have a positive influence on the class of interest. Without ReLU, the class activation map highlights more than that is required and hence achieve low localization performance.
-
- 
-### Custom Resnet
 
 
 ### Label Smoothing 
