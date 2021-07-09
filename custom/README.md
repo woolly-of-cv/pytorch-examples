@@ -19,7 +19,7 @@ This file is submitted as part of Assignment 9 for EVA6 Course
 - [Techniques Used](#techniques-used)
   - [GradCam](#gradcam)
   - [Custom Resnet](#custom-resnet)
-  - [Loss Smooth](#loss-smooth)
+  - [Label Smoothing](#label-smoothing)
   - [Grad Scaler](#grad-scaler)
 - [Graphs](#graphs)
 - [Images](#images)
@@ -166,14 +166,40 @@ ___
 #### Custom Resnet
 
 
-#### Loss Smooth
+#### Label Smoothing
 
-<image src='assets/Loss.png' >
+  * ### What is label smoothing
+	  When using deep learning models for classification tasks, we usually encounter the following problems: overfitting, and overconfidence. Overfitting is well studied and can be tackled with early stopping, dropout, weight regularization etc. On the other hand, we have less tools to tackle overconfidence. Label smoothing is a regularization technique that addresses both problems.
+
+  * ### Overconfidence and Calibration
+	A classification model is calibrated if its predicted probabilities of outcomes reflect their accuracy. For example, consider 100 examples within our dataset, each with predicted probability 0.9 by our model. If our model is calibrated, then 90 examples should be classified correctly. Similarly, among another 100 examples with predicted probabilities 0.6, we would expect only 60 examples being correctly classified.
+	 #### Model calibration is important for
+	* model interpretability and reliability
+	* deciding decision thresholds for downstream applications
+	* integrating our model into an ensemble or a machine learning pipeline
+	
+	An overconfident model is not calibrated and its predicted probabilities are consistently higher than the accuracy. For example, it may predict 0.9 for inputs where the accuracy is only 0.6. Notice that models with small test errors can still be overconfident, and therefore can benefit from label smoothing.
+	
+  * ### Formula of Label Smoothing
+	Label smoothing replaces one-hot encoded label vector y_hot with a mixture of y_hot and the uniform distribution: 
+      ```bash
+    y_ls = (1 - α) * y_hot + α / K
+      ```
+	here K is the number of label classes, and α is a hyperparameter that determines the amount of smoothing. If α = 0, we obtain the original one-hot encoded y_hot. If α = 1, we get the uniform distribution.
+	
+  * ### Motivation of Label Smoothing
+	Label smoothing is used when the loss function is cross entropy, and the model applies the softmax function to the penultimate layer’s logit vectors z to compute its output probabilities p. In this setting, the gradient of the cross entropy loss function with respect to the logits is simply
 
 
 #### Grad Scaler
+  * ### Introduction 
+	16-bit precision may not always be enough for some computations. One particular case of interest is representing gradient values, a great portion of which are usually small values. Representing them with 16-bit floats often leads to buffer underflows (i.e. they’d be represented as zeros). This makes training neural networks very unstable. GradScalar is designed to resolve this issue. It takes as input your loss value and multiplies it by a large scalar, inflating gradient values, and therefore making them represnetable in 16-bit precision. It then scales them down during gradient update to ensure parameters are updated correctly. This is generally what GradScalar does. But under the hood GradScalar is a bit smarter than that. Inflating the gradients may actually result in overflows which is equally bad. So GradScalar actually monitors the gradient values and if it detects overflows it skips updates, scaling down the scalar factor according to a configurable schedule. (The default schedule usually works but we may need to adjust that for our use case.)
 
-<image src='assets/gradscaler.png' >
+	Using GradScalar is very easy in practice:
+	<image src='assets/gradscaler.png' >
+
+
+	Note that we first create an instance of GradScalar. In training loop we call GradScalar.scale to scale the loss before calling backward to produce inflated gradients, we then use GradScalar.step which (may) update the model parameters. We then call GradScalar.update which performs the scalar update if needed. 
 
 ---
 
