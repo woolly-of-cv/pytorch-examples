@@ -24,3 +24,6 @@ To get insites about this dataset we will start analyzing it by first loading da
 
 We will be using `pandas` to do our analysis.
 
+### References
+
+* https://gist.github.com/jinyu121/e530dc9767d8f83c08f3582c71a5cbc8
