@@ -30,7 +30,16 @@ Tiny Imagenet
   
 ## Graphs:
   
-## Images:
+  <image src='assets/TinyImagenet.png'>
+    
+## Gradcam Images:
+    
+  <image src='assets/GradCam.png'>
+  
+## Misclassified Predictions:
+    
+   <image src='assets/MisclassifiedPredictions.png'>
+     
 
 ## References:
   
