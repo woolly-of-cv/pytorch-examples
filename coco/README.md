@@ -1,4 +1,22 @@
-# Analyzing a COCO data format
+# Analyzing COCO data format
+
+## Contributors
+
+* [Ammar Adil](https://github.com/adilsammar)
+* [Krithiga](https://github.com/BottleSpink)
+* [Shashwat Dhanraaj](https://github.com/sdhanraaj12)
+* [Srikanth Kandarp](https://github.com/Srikanth-Kandarp)
+---
+
+## Table of Contents
+  - [Coco Dataset](#tiny-imagenet-dataset)
+  - [Calculation](#calculation)
+  - [Anchor box](#anchor-box)
+  - [k-means](#k-means)
+  - [References](#references)
+  
+  
+## Coco Dataset:
 
 We will be using a sample subset of data [link](./dataset/sample_coco.txt)
 
@@ -24,6 +42,12 @@ To get insites about this dataset we will start analyzing it by first loading da
 
 We will be using `pandas` to do our analysis.
 
-### References
+## Calculation
+
+## Anchor box
+
+## K-Means
+
+## References: 
 
 * https://gist.github.com/jinyu121/e530dc9767d8f83c08f3582c71a5cbc8
