@@ -14,23 +14,113 @@ Tiny Imagenet
   - [Graphs](#graphs)
   - [Images](#images)
   - [References](#references)
-  
-## Tiny Imagenet Dataset:
+----
+## Introduction to Tiny Imagenet Dataset
 
 <p> It is a smaller version derived from the monolith ImageNet challenge. The dataset consists of 100000 images of 200 classes (500 for each class) downsized to 64×64 colored images. Each class has 500 training images, and in total 1000 test images. The download is done using the script in the https://github.com/woolly-of-cv/pytorch-lib/tree/main/woollylib/dataset/tiny_imagenet </p>
 
-### Preprocessing:
+### Preprocessing
 
 <p> The labels text file consist of the class names. The folders consisting of the training images are then renamed to their respective class names. Custom dataset class is created to read the image and label and for image transforms. <p>
 
-## About the Model:
-  
-  
-## BottleNeck:
-  
+
+---
+## About the Model
+
+We used a custom Model in order to achive this accuracy with the implementation of bottleneck 
+
+* ### Network Architechture
+
+<p align="center">
+  <img src='assets/Arch.png'>
+</p>
+ 
+
+
+
+* ### What is a BottleNeck ?
+
+  A bottleneck layer is a layer that contains few nodes compared to the previous layers. It can be used to obtain a representation of the input with reduced dimensionality. An example of this is the use of autoencoders with bottleneck layers for nonlinear dimensionality reduction.The first several layers of this network, from the input up to some intermediate layer (say, the 𝑘 th layer, containing 𝑛𝑘 nodes). This subnetwork implements a mapping from the input space to an 𝑛𝑘-dimensional vector space. The 𝑘th layer is a bottleneck layer, so the vector of activations of nodes in the 𝑘th layer gives a lower dimensional representation of the input. The original network can't be used to classify new identities, on which it wasn't trained. But, the 𝑘th layer may provide a good representation of faces in general. So, to learn new identities, new classifier layers can be stacked on top of the 𝑘th layer and trained. Or, the new training data can be fed through the subnetwork to obtain representations from the 𝑘th layer, and these representations can be fed to some other classifier.
+
+  ### BottleNeck Class
+  ```python
+  class WyBottleneck(nn.Module):
+    expansion = 4
+
+    def __init__(
+            self,
+            input_size,
+            output_size,
+            padding=1,
+            strides=1,
+            dilation=1,
+            use1x1=False,
+            ctype='vanila',
+            norm='bn',
+            first_block=False,
+            usedilation=False,
+            use_skip=True):
+
+        super(WyBottleneck, self).__init__()
+        planes = int(output_size/self.expansion)
+        self.conv1 = WyConv2d(
+            input_size,
+            planes,
+            kernel_size=1,
+            padding=0,
+            strides=1
+        )
+        self.bn1 = get_norm_layer(planes, norm=norm)
+
+        self.conv2 = WyConv2d(
+            planes,
+            planes,
+            kernel_size=3,
+            padding=padding,
+            strides=strides,
+            dilation=dilation,
+            ctype=ctype
+        )
+        self.bn2 = get_norm_layer(planes, norm=norm)
+
+        self.conv3 = WyConv2d(
+            planes,
+            output_size,
+            kernel_size=1,
+            padding=0,
+            strides=1
+        )
+
+        self.bn3 = get_norm_layer(output_size, norm=norm)
+
+        self.shortcut = nn.Sequential()
+        if use1x1 and use_skip and strides != 1 and input_size != output_size:
+            self.shortcut = nn.Sequential(
+                WyConv2d(
+                    input_size,
+                    output_size,
+                    kernel_size=1,
+                    padding=0,
+                    strides=strides
+                ),
+                get_norm_layer(output_size, norm=norm)
+            )
+
+    def forward(self, x):
+        out = F.relu(self.bn1(self.conv1(x)))
+        out = F.relu(self.bn2(self.conv2(out)))
+        out = self.bn3(self.conv3(out))
+        out += self.shortcut(x)
+        out = F.relu(out)
+        return out
+  ```
+----
 ## Graphs:
-  
+  <p align="center">
   <image src='assets/TinyImagenet.png'>
+</p>
+
+---
     
 ## Gradcam Images:
     
@@ -38,14 +128,16 @@ Tiny Imagenet
   <img width="600"  src='assets/GradCam.png'>
 </p>
  
-  
+---
 ## Misclassified Predictions:
 
 <p align="center">
   <img width="600" height="200" src='assets/MisclassifiedPredictions.png'>
 </p>
 
+---
 ## References:
   
- https://ojs.aaai.org/index.php/AAAI/article/view/4302/4180
+ * https://ojs.aaai.org/index.php/AAAI/article/view/4302/4180
+ * 
 
