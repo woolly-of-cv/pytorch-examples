@@ -34,12 +34,18 @@ Tiny Imagenet
     
 ## Gradcam Images:
     
-  <image src='assets/GradCam.png'>
+<p align="center">
+  <img width="600"  src='assets/GradCam.png'>
+</p>
+ 
   
 ## Misclassified Predictions:
-    
-   <image src='assets/MisclassifiedPredictions.png'>
-     
+
+<p align="center">
+  <img width="600" height="200" src='assets/MisclassifiedPredictions.png'>
+</p>
 
 ## References:
   
+ https://ojs.aaai.org/index.php/AAAI/article/view/4302/4180
+
