@@ -44,75 +44,13 @@ We used a custom Model in order to achive this accuracy with the implementation 
 
   ### BottleNeck Class
   ```python
-  class WyBottleneck(nn.Module):
-    expansion = 4
-
-    def __init__(
-            self,
-            input_size,
-            output_size,
-            padding=1,
-            strides=1,
-            dilation=1,
-            use1x1=False,
-            ctype='vanila',
-            norm='bn',
-            first_block=False,
-            usedilation=False,
-            use_skip=True):
-
-        super(WyBottleneck, self).__init__()
-        planes = int(output_size/self.expansion)
-        self.conv1 = WyConv2d(
-            input_size,
-            planes,
-            kernel_size=1,
-            padding=0,
-            strides=1
+  def _bottle_neck(self, inp, output):
+        return nn.Sequential(
+            WyConv2d(inp, output),
+            nn.MaxPool2d(2),
+            get_norm_layer(output, norm=self.norm),
+            nn.ReLU()
         )
-        self.bn1 = get_norm_layer(planes, norm=norm)
-
-        self.conv2 = WyConv2d(
-            planes,
-            planes,
-            kernel_size=3,
-            padding=padding,
-            strides=strides,
-            dilation=dilation,
-            ctype=ctype
-        )
-        self.bn2 = get_norm_layer(planes, norm=norm)
-
-        self.conv3 = WyConv2d(
-            planes,
-            output_size,
-            kernel_size=1,
-            padding=0,
-            strides=1
-        )
-
-        self.bn3 = get_norm_layer(output_size, norm=norm)
-
-        self.shortcut = nn.Sequential()
-        if use1x1 and use_skip and strides != 1 and input_size != output_size:
-            self.shortcut = nn.Sequential(
-                WyConv2d(
-                    input_size,
-                    output_size,
-                    kernel_size=1,
-                    padding=0,
-                    strides=strides
-                ),
-                get_norm_layer(output_size, norm=norm)
-            )
-
-    def forward(self, x):
-        out = F.relu(self.bn1(self.conv1(x)))
-        out = F.relu(self.bn2(self.conv2(out)))
-        out = self.bn3(self.conv3(out))
-        out += self.shortcut(x)
-        out = F.relu(out)
-        return out
   ```
 ----
 ## Graphs:
