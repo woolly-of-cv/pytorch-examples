@@ -77,5 +77,5 @@ We used a custom Model in order to achive this accuracy with the implementation 
 ## References:
   
  * https://ojs.aaai.org/index.php/AAAI/article/view/4302/4180
- * 
+ 
 
