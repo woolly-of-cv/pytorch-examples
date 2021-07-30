@@ -9,7 +9,7 @@
 ---
 ## Table of Contents
   - [About the Model and Architechture](#about-the-model)
-  - [Result](#result)
+  - [Results](#results)
   - [Misclassified Images](#misclassified-images)
   - [References](#references)
 
@@ -145,10 +145,13 @@
   </p>
 
 --- 
+
 ## Results:
 <p align="center">
     <img src='assets/spatial_transformer.png'>
   </p>
+  
+---
   
 ## Confusion Matrix and Misclassified Images:
 
