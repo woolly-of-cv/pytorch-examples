@@ -148,7 +148,7 @@
 
 ## Results:
 <p align="center">
-    <img src='assets/spatial_transformer.png'>
+    <img src='assets/Graphs.png'>
   </p>
   
 ---
