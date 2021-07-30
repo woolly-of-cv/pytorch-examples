@@ -96,34 +96,11 @@
   * The sampler uses the parameters of the transformation and applies it to the input image.
 
   $~~~~~~~~~~~$
-
-
   <p align="center">
     <img src='assets/spatial_transformer.png'>
   </p>
   
 
-* ## <b>Vision Transformer Classes</b>
-  * ### <b>Block Class</b>
-
-    * ### Architechture
-    * ### About the Class
-  * ### <b>Embeddings </b>
-    * ### Architechture
-    * ### About the Class
-  * ### <b>MLP</b>
-
-    * ### Architechture
-    * ### About the Class
-  * ### <b>Attention</b>
-
-    * ### Architechture
-    * ### About the Class
-  * ### <b>Encoder</b>
-
-    * ### Architechture
-
-    * ### About the Class
 --- 
 ## Results
 
