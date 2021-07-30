@@ -27,9 +27,13 @@
   
   ## Spatial Transformation Matrices:
   
-  - Affine Transformation
-  - Projective Transformation
-  - Thin Plate Spline Transformation
+  - Affine Transformation:
+    Affine Transformation helps to modify the geometric structure of the image, preserving parallelism of lines but not the lengths and angles. It preserves collinearity and ratios of distances. This technique is also used to correct Geometric Distortions and Deformations that occur with non-ideal camera angles. The Affine Transformation relies on matrices to handle rotation, shear, translation and scaling.
+  - Projective Transformation:
+    A projective transformation shows how the perceived objects change as the observer's viewpoint changes. These transformations allow the creating of perspective distortion. Projective transformations do not preserve parallelism, length, and angle.
+  - Thin Plate Spline Transformation:
+    A more flexible or higher degree of freedom of deformation or transformation can be achieved by TPS.
+    
   
   ## Spatial Transformers:
   
@@ -37,6 +41,8 @@
   - In order of computation, first a localisation network takes the input feature map, and through a number of hidden layers outputs the parameters of the spatial transformation that should be applied to the feature map – this gives a transformation conditional on the input. 
   - Then, the predicted transformation parameters are used to create a sampling grid, which is a set of points where the input map should be sampled to produce the transformed output. This is done by the grid generator
   - Finally, the feature map and the sampling grid are taken as inputs to the sampler, producing the output map sampled from the input at the grid points 
+
+  The combination of the localisation network, grid generator, and sampler form a spatial transformer. This is a self-contained module which can be dropped into a CNN architecture at any point, and in any number, giving rise to spatial transformer networks. This module is computationally very fast and does not impair the training speed, causing very little time overhead when used naively, and even speedups in attentive models due to subsequent downsampling that can be applied to the output of the transformer. Placing spatial transformers within a CNN allows the network to learn how to actively transform the feature maps to help minimise the overall cost function of the network during training. The knowledge of how to transform each training sample is compressed and cached in the weights of the localisation network (and also the weights of the layers previous to a spatial transformer) during training. For some tasks, it may also be useful to feed the output of the localisation network, θ, forward to the rest of the network, as it explicitly encodes the transformation, and hence the pose, of a region or object. It is also possible to use spatial transformers to downsample or oversample a feature map, as one can define the output dimensions H0 and W0 to be different to the input dimensions H and W. However, with sampling kernels with a fixed, small spatial support (such as the bilinear kernel), downsampling with a spatial transformer can cause aliasing effects.
 
   ```python
   # ==> Model <===
@@ -129,4 +135,4 @@
 ---
 ## Referances 
 1. https://github.com/jeonsworld/ViT-pytorch/blob/main/models/modeling.py
-2. 
+2. https://towardsdatascience.com/review-stn-spatial-transformer-network-image-classification-d3cbd98a70aa
