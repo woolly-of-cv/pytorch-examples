@@ -37,7 +37,7 @@
 
         return x
 
-      self.localization = nn.Sequential(
+      localization = nn.Sequential(
             nn.Conv2d(1, 8, kernel_size=7),
             nn.MaxPool2d(2, stride=2),
             nn.ReLU(True),
@@ -47,7 +47,7 @@
         )
 
         # Regressor for the 3 * 2 affine matrix
-        self.fc_loc = nn.Sequential(
+        fc_loc = nn.Sequential(
             nn.Linear(10 * 3 * 3, 32),
             nn.ReLU(True),
             nn.Linear(32, 3 * 2)
