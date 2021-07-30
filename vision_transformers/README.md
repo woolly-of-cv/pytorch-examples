@@ -11,10 +11,9 @@
 
   * [<b>About the Transformer</b>](#-b-vision-transformer-classes--b-)
     + [<b>Introduction </b>](#-b-introduction---b-)
-    + [<b>Block Class</b>](#-b-step-1--block-class--b-)
-    + [<b>Attention</b>](#-b-step-2--attention--b-)
-    + [<b>Embeddings </b>](#-b-step-3--embeddings---b-)
-    + [<b>Encoder</b>](#-b-step-4--encoder--b-)
+    + [<b>Block and Attention</b>](#-b--block-class--b-)
+    + [<b>Embeddings </b>](#-b--embeddings---b-)
+    + [<b>Encoder</b>](#-b-encoder--b-)
     + [<b>MLP aka Multi-Layer Perceptron</b>](#-b-step-4--mlp-aka-multi-layer-perceptron---b-)
   * [Referances](#referances)
 
@@ -37,7 +36,7 @@ The input sequence consists of a flattened vector of pixel values extracted from
 
   A hybrid architecture is also presented in this work. Instead of using projected image patches as input to the transformer, they use feature maps from the early stages of a ResNet. By training Transformers and this CNN backbone end-to-end, they achieve their best performances.
 
-  * ### <b>Step 1: Block Class</b>
+  * ### <b>Block and Attention</b>
 
     1. <b>Prepare inputs</b>
 
@@ -146,7 +145,6 @@ The input sequence consists of a flattened vector of pixel values extracted from
     8. <b>Repeat steps 4–7 for Input 2 & Input 3</b>
 
 
-  * ### <b>Step 2: Attention</b>
 
   
       <p align="center">
@@ -162,7 +160,7 @@ The input sequence consists of a flattened vector of pixel values extracted from
 
     Okay basically let's do global attention by simply going over image patches so we divide the image into these patches as you can see here and one patch is in this case something like 16 by 16. they unroll these patches into a sequence which is a first instance it's a set they combine this with a positional embedding so the transformers naturally they have no idea what what is where it's not like the transformer in a way is a generalization of an mlp of a feed-forward network in a feed-forward network what you have is you have you have just you have connections between these different inputs and outputs okay and these are fixed so the this node here will always attend to this node here with the weight that's specified by this particular connection however in a transformer this w isn't a fixed number in a transformer as the w is determined as they go and therefore is permutation and variant.
 
-  * ### <b>Step 3: Embeddings </b>
+  * ### <b>Embeddings</b>
 
       <p align="center">
         <img src='assets/Image_3.png'>
@@ -201,7 +199,7 @@ The input sequence consists of a flattened vector of pixel values extracted from
       <p align="center">
         <img src='assets/P_formula.png'>
       </p>
-  * ### <b>Step 4: Encoder</b>
+  * ### <b>Encoder</b>
 
       <p align="center">
         <img src='assets/Image_4.png'>
