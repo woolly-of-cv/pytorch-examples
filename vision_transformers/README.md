@@ -98,7 +98,7 @@ The input sequence consists of a flattened vector of pixel values extracted from
         <img src='assets/Image_4.png'>
       </p>
 
-      The Transformer encoder consists of alternating layers of multiheaded self- attention and MLP blocks. Layernorm (LN) is applied before every block, and residual connections after every block. The MLP contains two layers with a GELU non-linearity.
+      The Transformer encoder consists of alternating layers of multiheaded self- attention and MLP blocks. Layernorm (LN) is applied before every block, and residual connections after every block. The MLP contains two layers with a GELU non-linearity,
 
       <p align="center">
         <img src='assets/MLP_formula.png'>
