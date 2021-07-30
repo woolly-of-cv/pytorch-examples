@@ -20,7 +20,10 @@
 
   Spatial transformer networks are a generalization of differentiable attention to any spatial transformation. Spatial transformer networks (STN for short) allow a neural network to learn how to perform spatial transformations on the input image in order to enhance the geometric invariance of the model. For example, it can crop a region of interest, scale and correct the orientation of an image. It can be a useful mechanism because CNNs are not invariant to rotation and scale and more general affine transformations.
 
-  One of the best things about STN is the ability to simply plug it into any existing CNN with very little modification.
+  One of the best things about STN is the ability to simply plug it into any existing CNN with very little modification. Spatial transformers can be incorporated into CNNs to benefit multifarious tasks:
+  - Image classification: Suppose a CNN is trained to perform multi-way classification of images according to whether they contain a particular digit – where the position and size of the digit may vary significantly with each sample (and are uncorrelated with the class); a spatial transformer that crops out and scale normalizes the appropriate region can simplify the subsequent classification task, and lead to superior classification performance
+  - Co-localisation: Given a set of images containing different instances of the same (but unknown) class, a spatial transformer can be used to localise them in each image
+  - Spatial Attention: A key benefit of using attention is that transformed (and so attended), lower resolution inputs can be used in favour of higher resolution raw inputs, resulting in increased computational efficiency.
   
   ## Spatial Transformation Matrices:
   
