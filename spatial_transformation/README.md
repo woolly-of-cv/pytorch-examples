@@ -16,6 +16,9 @@
 ---
 
 ## About the Model and Architechture   
+
+The colab file link to the notebook [here](https://colab.research.google.com/drive/19itox9W4M4E0zxUdm_wmwPPKUBj704Jl?usp=sharing)
+
 * ## Introduction
 
 
