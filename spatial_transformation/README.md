@@ -41,32 +41,37 @@
   ```python
   # ==> Model <===
   # +--------------------------------------------------------------+
-      def stn(self, x):
-        xs = self.localization(x)
-        xs = xs.view(-1, 10 * 3 * 3)
-        theta = self.fc_loc(xs)
-        theta = theta.view(-1, 2, 3)
-
-        grid = F.affine_grid(theta, x.size())
-        x = F.grid_sample(x, grid)
-
-        return x
-
-      localization = nn.Sequential(
-            nn.Conv2d(1, 8, kernel_size=7),
-            nn.MaxPool2d(2, stride=2),
-            nn.ReLU(True),
-            nn.Conv2d(8, 10, kernel_size=5),
-            nn.MaxPool2d(2, stride=2),
-            nn.ReLU(True)
+         self.localization = nn.Sequential(
+         nn.Conv2d(3, 64, kernel_size=7),
+         nn.MaxPool2d(2, stride=2),
+         nn.ReLU(True),
+         nn.Conv2d(64, 128, kernel_size=5),
+         nn.MaxPool2d(2, stride=2),
+         nn.ReLU(True)
         )
 
         # Regressor for the 3 * 2 affine matrix
-        fc_loc = nn.Sequential(
-            nn.Linear(10 * 3 * 3, 32),
+        self.fc_loc = nn.Sequential(
+            nn.Linear(128*4*4, 256),
             nn.ReLU(True),
-            nn.Linear(32, 3 * 2)
+            nn.Linear(256, 3 * 2)
         )
+
+        # Initialize the weights/bias with identity transformation
+        self.fc_loc[2].weight.data.zero_()
+        self.fc_loc[2].bias.data.copy_(torch.tensor([1, 0, 0, 0, 1, 0], dtype=torch.float))
+
+    # Spatial transformer network forward function
+    def stn(self, x):
+        xs = self.localization(x)
+        xs = xs.view(-1, xs.size(1) * xs.size(2) * xs.size(3))
+        theta = self.fc_loc(xs)
+        theta = theta.view(-1, 2, 3)
+
+        grid = F.affine_grid(theta, x.size(), align_corners=True)
+        x = F.grid_sample(x, grid, align_corners=True)
+
+        return x
   # +--------------------------------------------------------------+
 
   # ==> Visualizing the STN Results <===
