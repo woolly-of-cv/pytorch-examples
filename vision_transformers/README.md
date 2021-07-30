@@ -36,7 +36,6 @@ The input sequence consists of a flattened vector of pixel values extracted from
 
   * ### <b>Step 1: Block Class</b>
 
-    * ### How it Works ?
 
   * ### <b>Step 2:Attention</b>
 
@@ -52,9 +51,6 @@ The input sequence consists of a flattened vector of pixel values extracted from
       </p>
   
 
-
-    * ### How it Works ?
-
     Okay basically let's do global attention by simply going over image patches so we divide the image into these patches as you can see here and one patch is in this case something like 16 by 16. they unroll these patches into a sequence which is a first instance it's a set they combine this with a positional embedding so the transformers naturally they have no idea what what is where it's not like the transformer in a way is a generalization of an mlp of a feed-forward network in a feed-forward network what you have is you have you have just you have connections between these different inputs and outputs okay and these are fixed so the this node here will always attend to this node here with the weight that's specified by this particular connection however in a transformer this w isn't a fixed number in a transformer as the w is determined as they go and therefore is permutation and variant.
 
   * ### <b>Step 3:Embeddings </b>
@@ -63,7 +59,6 @@ The input sequence consists of a flattened vector of pixel values extracted from
         <img src='assets/Image_3.png'>
       </p>
 
-    * ### How it Works ?
 
       The most important part that we need to understand is how to break down the image into patches. An image is represented as
       ```
@@ -103,7 +98,6 @@ The input sequence consists of a flattened vector of pixel values extracted from
         <img src='assets/Image_4.png'>
       </p>
 
-    * ### How it Works ?
       The Transformer encoder consists of alternating layers of multiheaded self- attention and MLP blocks. Layernorm (LN) is applied before every block, and residual connections after every block. The MLP contains two layers with a GELU non-linearity.
 
       <p align="center">
@@ -121,7 +115,6 @@ The input sequence consists of a flattened vector of pixel values extracted from
         <img src='assets/Image_5.png'>
       </p>
 
-    * ### How it Works ?
       A multilayer perceptron (MLP) is a feedforward artificial neural network that generates a set of outputs from a set of inputs. An MLP is characterized by several layers of input nodes connected as a directed graph between the input and output layers. MLP uses backpropogation for training the network. MLP is a deep learning method. As the neural network connecting multiple layers in a directed graph, which means that the signal path through the nodes only goes one way. Each node, apart from the input nodes, has a nonlinear activation function and that predicts that the image that we feed was <b>Rohan</b> as a class.
 
 
