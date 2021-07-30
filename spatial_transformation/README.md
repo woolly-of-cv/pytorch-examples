@@ -27,7 +27,9 @@
   
   ## Spatial Transformation Matrices:
   
+  <p align="center">
   <image src='assets/Transformations.png'>
+  </p>
   
   - Affine Transformation:
     Affine Transformation helps to modify the geometric structure of the image, preserving parallelism of lines but not the lengths and angles. It preserves collinearity and ratios of distances. This technique is also used to correct Geometric Distortions and Deformations that occur with non-ideal camera angles. The Affine Transformation relies on matrices to handle rotation, shear, translation and scaling.
@@ -38,7 +40,9 @@
   
   Below animation shows the rotated MNIST:
     
-   <image src='assets/AffineTPS.gif'>
+  <p align="center"> 
+  <image src='assets/AffineTPS.gif'>
+    </p>
     
   
   ## Spatial Transformers:
