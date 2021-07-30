@@ -8,13 +8,16 @@
 * [Srikanth Kandarp](https://github.com/Srikanth-Kandarp)
 ---
 ## Table of Contents
-  - [About the Transformer](#about-the-model)
-    - [Block Class](#block-class)
-    - [Attention Class](#attention-class)
-    - [Embeddings Class](#embddings-class)
-    - [MLP Class](#mlp-class)
-    
-  - [References](#references)
+
+  * [<b>About the Transformer</b>](#-b-vision-transformer-classes--b-)
+    + [<b>Introduction </b>](#-b-introduction---b-)
+    + [<b>Block Class</b>](#-b-step-1--block-class--b-)
+    + [<b>Attention</b>](#-b-step-2--attention--b-)
+    + [<b>Embeddings </b>](#-b-step-3--embeddings---b-)
+    + [<b>Encoder</b>](#-b-step-4--encoder--b-)
+    + [<b>MLP aka Multi-Layer Perceptron</b>](#-b-step-4--mlp-aka-multi-layer-perceptron---b-)
+  * [Referances](#referances)
+
 
 ---
 
