@@ -10,9 +10,9 @@
 ## Table of Contents
   - [About the Transformer](#about-the-model)
     - [Block Class](#block-class)
-    - [Block Class](#block-class)
-    - [Block Class](#block-class)
-    - [Block Class](#block-class)
+    - [Attention Class](#attention-class)
+    - [Embeddings Class](#embddings-class)
+    - [MLP Class](#mlp-class)
     
   - [References](#references)
 
