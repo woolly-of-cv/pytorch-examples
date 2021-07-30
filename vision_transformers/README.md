@@ -36,8 +36,114 @@ The input sequence consists of a flattened vector of pixel values extracted from
 
   * ### <b>Step 1: Block Class</b>
 
+    1. <b>Prepare inputs</b>
 
-  * ### <b>Step 2:Attention</b>
+          ```
+          Input 1: [1, 0, 1, 0] 
+          Input 2: [0, 2, 0, 2]
+          Input 3: [1, 1, 1, 1  
+          ```
+
+
+    2. <b>Initialise weights</b>
+
+          Every input must have three representations and they are key,query and value. 
+
+            Weights for key:
+
+              [[0, 0, 1],
+              [1, 1, 0],
+              [0, 1, 0],
+              [1, 1, 0]]
+      
+
+            Weights for query:
+
+              [[1, 0, 1],
+              [1, 0, 0],
+              [0, 0, 1],
+              [0, 1, 1]]
+          
+
+            Weights for value:
+
+              [[0, 2, 0],
+              [0, 3, 0],
+              [1, 0, 3],
+              [1, 1, 0]]
+
+    3. <b>Derive key, query and value</b>
+
+
+        Now that we have the three sets of weights, let’s actually obtain the key, query and value representations for every input.Key representation for Input 1 and use the same set of weights to get the key representation for Input 2 And Input 3:
+        ```
+                       [0, 0, 1]
+        [1, 0, 1, 0]   [1, 1, 0]   [0, 1, 1]
+        [0, 2, 0, 2] x [0, 1, 0] = [4, 4, 0]
+        [1, 1, 1, 1]   [1, 1, 0]   [2, 3, 1]
+        ```
+       Let’s do the same to obtain the value and query representations for every input:
+
+
+        ```
+        Value :
+                       [0, 2, 0]
+        [1, 0, 1, 0]   [0, 3, 0]   [1, 2, 3] 
+        [0, 2, 0, 2] x [1, 0, 3] = [2, 8, 0]
+        [1, 1, 1, 1]   [1, 1, 0]   [2, 6, 3]
+
+        Query :
+                       [1, 0, 1]
+        [1, 0, 1, 0]   [1, 0, 0]   [1, 0, 2]
+        [0, 2, 0, 2] x [0, 0, 1] = [2, 2, 2]
+        [1, 1, 1, 1]   [0, 1, 1]   [2, 1, 3]
+
+        ```
+
+
+    4. <b>Calculate attention scores for Input 1</b>
+
+        To obtain attention scores, we start off with taking a dot product between Input 1’s query with all keys, including itself. Since there are 3 key representations (because we have 3 inputs), we obtain 3 attention scores.
+        
+        ```
+                    [0, 4, 2]
+        [1, 0, 2] x [1, 4, 3] = [2, 4, 4]
+                    [1, 0, 1]
+        ```
+
+    5. <b>Calculate softmax</b>
+
+        The Result would be ```softmax([2, 4, 4]) = [0.0, 0.5, 0.5]```.
+
+    6. <b>Multiply scores with values</b>
+
+          The softmaxed attention scores for each input is multiplied with its corresponding value. This results in 3 alignment vectors. In this tutorial, we’ll refer to them as weighted values.
+
+          ```
+          1: 0.0 * [1, 2, 3] = [0.0, 0.0, 0.0]
+          2: 0.5 * [2, 8, 0] = [1.0, 4.0, 0.0]
+          3: 0.5 * [2, 6, 3] = [1.0, 3.0, 1.5]
+          ```
+
+    7. <b>Sum weighted values to get Output 1</b>
+
+        Take all the weighted values and sum them element-wise:
+
+        ```
+            [0.0, 0.0, 0.0]
+          + [1.0, 4.0, 0.0]
+          + [1.0, 3.0, 1.5]
+          -----------------
+          = [2.0, 7.0, 1.5]
+        ```
+
+        The resulting vector [2.0, 7.0, 1.5] (dark green) is Output 1, which is based on the query representation from Input 1 interacting with all other keys, including itself.
+
+
+    8. <b>Repeat steps 4–7 for Input 2 & Input 3</b>
+
+
+  * ### <b>Step 2: Attention</b>
 
   
       <p align="center">
@@ -53,7 +159,7 @@ The input sequence consists of a flattened vector of pixel values extracted from
 
     Okay basically let's do global attention by simply going over image patches so we divide the image into these patches as you can see here and one patch is in this case something like 16 by 16. they unroll these patches into a sequence which is a first instance it's a set they combine this with a positional embedding so the transformers naturally they have no idea what what is where it's not like the transformer in a way is a generalization of an mlp of a feed-forward network in a feed-forward network what you have is you have you have just you have connections between these different inputs and outputs okay and these are fixed so the this node here will always attend to this node here with the weight that's specified by this particular connection however in a transformer this w isn't a fixed number in a transformer as the w is determined as they go and therefore is permutation and variant.
 
-  * ### <b>Step 3:Embeddings </b>
+  * ### <b>Step 3: Embeddings </b>
 
       <p align="center">
         <img src='assets/Image_3.png'>
@@ -92,7 +198,7 @@ The input sequence consists of a flattened vector of pixel values extracted from
       <p align="center">
         <img src='assets/P_formula.png'>
       </p>
-  * ### <b>Step 4:Encoder</b>
+  * ### <b>Step 4: Encoder</b>
 
       <p align="center">
         <img src='assets/Image_4.png'>
@@ -108,7 +214,7 @@ The input sequence consists of a flattened vector of pixel values extracted from
       <b>Hybrid Architecture</b> is an alternative to raw image patches, the input sequence can be formed from feature maps of a CNN. In this model, the patch embedding projection E (Eq. 1) is applied to patches extracted from a CNN feature map. As a special case, the patches can have spatial size 1x1, which means that the input sequence is obtained by simply flattening the spatial dimensions of the feature map and projecting to the Transformer dimension. The classification input embedding and position embeddings are added as described above.
 
 
-  * ### <b>Step 4:MLP aka Multi-Layer Perceptron </b>
+  * ### <b>Step 4: MLP aka Multi-Layer Perceptron </b>
 
 
       <p align="center">
