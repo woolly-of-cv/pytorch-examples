@@ -21,8 +21,20 @@
   Spatial transformer networks are a generalization of differentiable attention to any spatial transformation. Spatial transformer networks (STN for short) allow a neural network to learn how to perform spatial transformations on the input image in order to enhance the geometric invariance of the model. For example, it can crop a region of interest, scale and correct the orientation of an image. It can be a useful mechanism because CNNs are not invariant to rotation and scale and more general affine transformations.
 
   One of the best things about STN is the ability to simply plug it into any existing CNN with very little modification.
+  
+  ## Spatial Transformation Matrices:
+  
+  - Affine Transformation
+  - Projective Transformation
+  - Thin Plate Spline Transformation
+  
+  ## Spatial Transformers:
+  
+  This is a differentiable module which applies a spatial transformation to a feature map during a single forward pass, where the transformation is conditioned on the particular input, producing a single output feature map. For multi-channel inputs, the same warping is applied to each channel. The spatial transformer mechanism is split into three parts. 
+  - In order of computation, first a localisation network takes the input feature map, and through a number of hidden layers outputs the parameters of the spatial transformation that should be applied to the feature map – this gives a transformation conditional on the input. 
+  - Then, the predicted transformation parameters are used to create a sampling grid, which is a set of points where the input map should be sampled to produce the transformed output. This is done by the grid generator
+  - Finally, the feature map and the sampling grid are taken as inputs to the sampler, producing the output map sampled from the input at the grid points 
 
-  <b>Just like that 😉 </b>
   ```python
   # ==> Model <===
   # +--------------------------------------------------------------+
