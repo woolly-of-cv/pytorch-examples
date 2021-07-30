@@ -11,10 +11,10 @@
 
   * [<b>About the Transformer</b>](#-b-vision-transformer-classes--b-)
     + [<b>Introduction </b>](#-b-introduction---b-)
-    + [<b>Block and Attention</b>](#-b--block-class--b-)
-    + [<b>Embeddings </b>](#-b--embeddings---b-)
+    + [<b>Block and Attention</b>](#-b-block-and-attention--b-)
+    + [<b>Embeddings</b>](#-b-embeddings--b-)
     + [<b>Encoder</b>](#-b-encoder--b-)
-    + [<b>MLP aka Multi-Layer Perceptron</b>](#-b-step-4--mlp-aka-multi-layer-perceptron---b-)
+    + [<b>Step 4: MLP aka Multi-Layer Perceptron </b>](#-b-step-4--mlp-aka-multi-layer-perceptron---b-)
   * [Referances](#referances)
 
 
