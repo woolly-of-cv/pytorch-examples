@@ -1,4 +1,4 @@
-# CIFAR10 with Spacial Transformer
+# CIFAR10 with Spatial Transformer
 ### This file is submitted as part of Assignment 12 for EVA6 Course.
 ## Contributors
 
@@ -10,7 +10,7 @@
 ## Table of Contents
   - [About the Model and Architechture](#about-the-model)
   - [Result](#result)
-  - [Referances](#referances)
+  - [References](#references)
 
 ---
 
@@ -27,12 +27,18 @@
   
   ## Spatial Transformation Matrices:
   
+  <image src='assets/Transformations.png'>
+  
   - Affine Transformation:
     Affine Transformation helps to modify the geometric structure of the image, preserving parallelism of lines but not the lengths and angles. It preserves collinearity and ratios of distances. This technique is also used to correct Geometric Distortions and Deformations that occur with non-ideal camera angles. The Affine Transformation relies on matrices to handle rotation, shear, translation and scaling.
   - Projective Transformation:
     A projective transformation shows how the perceived objects change as the observer's viewpoint changes. These transformations allow the creating of perspective distortion. Projective transformations do not preserve parallelism, length, and angle.
   - Thin Plate Spline Transformation:
     A more flexible or higher degree of freedom of deformation or transformation can be achieved by TPS.
+  
+  Below animation shows the rotated MNIST:
+    
+   <image src='assets/AffineTPS.gif'>
     
   
   ## Spatial Transformers:
@@ -133,6 +139,6 @@
 
 
 ---
-## Referances 
+## References 
 1. https://github.com/jeonsworld/ViT-pytorch/blob/main/models/modeling.py
 2. https://towardsdatascience.com/review-stn-spatial-transformer-network-image-classification-d3cbd98a70aa
