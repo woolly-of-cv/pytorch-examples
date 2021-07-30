@@ -42,14 +42,13 @@ The input sequence consists of a flattened vector of pixel values extracted from
 
   
       <p align="center">
-        <img src='assets/Image_1.png'>
-        <b>Dividing Images into Patches</b><br>
+        <img width="300" height="300" src='assets/Image_1.png'>
       </p>
+
+
 
       <p align="center">
         <img src='assets/Image_2.png'>
-        <b>Unrolling these patches into a sequence</b><br>
-        <center><b> </b></center>
       </p>
   
 
@@ -97,7 +96,6 @@ The input sequence consists of a flattened vector of pixel values extracted from
 
       <p align="center">
         <img src='assets/P_formula.png'>
-        <b>Position Embedding formula as per attention mechanism</b><br>
       </p>
   * ### <b>Step 4:Encoder</b>
 
@@ -121,7 +119,6 @@ The input sequence consists of a flattened vector of pixel values extracted from
 
       <p align="center">
         <img src='assets/Image_5.png'>
-        <b>Multilayer Perceptron (MLP) and the Output</b><br>
       </p>
 
     * ### How it Works ?
