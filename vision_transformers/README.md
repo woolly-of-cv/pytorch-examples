@@ -24,18 +24,11 @@
   
   <p align="center">
     <img src='assets/ViT.png'>
-    <center><b>Overview Architechture</b></center>
+    <b>Overview Architechture</b><br>
   </p>
   
-  ### Now lets take a peek inside how the transformer encoder works.
-
-  <p align="center">
-    <img src='assets/Image_4.png'>
-  </p>
   
-
-  
-  The input sequence consists of a flattened vector of pixel values extracted from a patch of size PxP. Each flattened element is fed into a linear projection layer that will produce what they call the “patch embeddings”. An extra learnable embedding is attached to the beginning of the sequence. This embedding, after being updated by self-attention, will be used to predict the class of the input image. A learnable positional embedding is also added to each of these embeddings.
+The input sequence consists of a flattened vector of pixel values extracted from a patch of size PxP. Each flattened element is fed into a linear projection layer that will produce what they call the “patch embeddings”. An extra learnable embedding is attached to the beginning of the sequence. This embedding, after being updated by self-attention, will be used to predict the class of the input image. A learnable positional embedding is also added to each of these embeddings.
 
   The classification is performed by just stacking an MLP Head on top of the Transformer, at the position of the extra learnable embedding that we added to the sequence.
 
@@ -50,12 +43,13 @@
   
       <p align="center">
         <img src='assets/Image_1.png'>
-        <center><b>Dividing Images into Patches</b></center>
+        <b>Dividing Images into Patches</b><br>
       </p>
 
       <p align="center">
         <img src='assets/Image_2.png'>
-        <center><b>Unrolling these patches into a sequence </b></center>
+        <b>Unrolling these patches into a sequence</b><br>
+        <center><b> </b></center>
       </p>
   
 
@@ -68,7 +62,6 @@
 
       <p align="center">
         <img src='assets/Image_3.png'>
-        <center><b>Unrolling these patches into a sequence </b></center>
       </p>
 
     * ### How it Works ?
@@ -104,7 +97,7 @@
 
       <p align="center">
         <img src='assets/P_formula.png'>
-        <center><b>Position Embedding formula as per attention mechanism</b></center>
+        <b>Position Embedding formula as per attention mechanism</b><br>
       </p>
   * ### <b>Step 4:Encoder</b>
 
@@ -128,7 +121,7 @@
 
       <p align="center">
         <img src='assets/Image_5.png'>
-        <center><b>Multilayer Perceptron (MLP) and the Output</b></center>
+        <b>Multilayer Perceptron (MLP) and the Output</b><br>
       </p>
 
     * ### How it Works ?
