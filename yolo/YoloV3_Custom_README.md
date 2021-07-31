@@ -50,13 +50,15 @@
     However, unlike systems like R-CNN and Fast R-CNN, YOLO is trained to do classification and bounding box regression at the same time.
 
     <figure align="center">
-        <img src='assets/YOLOv3_Arch.png' />
+        <img src='assets/YOLOv3_Arch.png'/>
         <font size="2">
-        <figcaption> <b>YOLOv3 Architechture</b>
         </figcaption>
         </font>
     </figure>
 
+ <h4 align="center">YOLOv3 Architechture</h4>
+ 
+ 
 ```bash
                             ┌────────────┬────────────────────────┬───────────────────┐
                             │    Name    │        Filters         │ Output Dimension  │
@@ -122,19 +124,17 @@
 
 
 
+
     YOLOv3 is fast and accurate in terms of mean average precision (mAP) and intersection over union (IOU) values as well. It runs significantly faster than other detection methods with comparable performance (hence the name – You only look once).
 
     Moreover, you can easily trade-off between speed and accuracy simply by changing the model’s size, and no retraining required.
 
-<figure align="center">
-    <img src='assets/YOLOv3_Performance.png' />
-    <font size="2">
-    <figcaption> <b>YOLOv3 Performance </b>
-    </figcaption>
-    </font>
-</figure>
+   <p align="center">
+       <img src='assets/YOLOv3_Performance.png' />
+   </p>
 
 
+<h4 align="center">YOLOv3 Performance</h4>
 
 ## How to prepare your Custom Dataset ? 
 
@@ -150,13 +150,12 @@
     The first step to understanding YOLO is how it encodes its output. The input image is divided into an S x S grid of cells. For each object that is present on the image, one grid cell is said to be “responsible” for predicting it. That is the cell where the center of the object falls into.
     Each grid cell predicts B bounding boxes as well as C class probabilities. The bounding box prediction has 5 components: (x, y, w, h, confidence). The (x, y) coordinates represent the center of the box, relative to the grid cell location (remember that, if the center of the box does not fall inside the grid cell, than this cell is not responsible for it). These coordinates are normalized to fall between 0 and 1. The (w, h) box dimensions are also normalized to [0, 1], relative to the image size. Let’s look at an example:
 
-    <figure align="center">
-        <img src='assets/Annotations.png' />
-        <font size="2">
-        <figcaption> <b>Annotations of the Custom Class</b>
-        </figcaption>
-        </font>
-    </figure>
+
+   <p align="center">
+       <img src='assets/Annotations.png' />
+   </p>
+  <h4 align="center">Annotations of the Custom Class</h4>
+
 
     It is also necessary to predict the class probabilities, Pr(Class(i) | Object). This probability is conditioned on the grid cell containing one object (see this if you don’t know that conditional probability means). In practice, it means that if no object is present on the grid cell, the loss function will not penalize it for a wrong class prediction, as we will see later. The network only predicts one set of class probabilities per cell, regardless of the number of boxes B. That makes S x S x C class probabilities in total
 
@@ -168,13 +167,10 @@
 
         The precision for small objects in YOLOv2 was incomparable to other algorithms because of how inaccurate YOLO was at detecting small objects. With an AP of 5.0, it paled compared to other algorithms like RetinaNet (21.8) or SSD513 (10.2), which had the second-lowest AP for small objects.
 
-        <figure align="center">
+        <p align="center">
             <img src='assets/YOLOv3_Objects.png' />
-            <font size="2">
-            <figcaption> <b>YOLOv3 comparison for different object sizes showing the average precision (AP) for AP-S (small object size), AP-M (medium object size), AP-L (large object size)</b>
-            </figcaption>
-            </font>
-        </figure>
+        </p>
+       <h4 align="center">YOLOv3 comparison for different object sizes showing the average precision (AP) for AP-S (small object size), AP-M (medium object size), AP-L (large object size</h4>
 
         The chart above shows the average precision (AP) of detecting small, medium, and large images with various algorithms and backbones. The higher the AP, the more accurate it is for that variable.
 
