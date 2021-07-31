@@ -126,16 +126,14 @@
 
 ## How to prepare your Custom Dataset ? 
 
-### Classes that we worked in our custom dataset are 
-
-    ```
+### Classes that we worked with in our custom dataset are
+    
+    
     - Hardhats 
     - Vests
     - Marks 
     - Boots
-    ```
-
-
+        
 * ### Working with BBoxes
     The first step to understanding YOLO is how it encodes its output. The input image is divided into an S x S grid of cells. For each object that is present on the image, one grid cell is said to be “responsible” for predicting it. That is the cell where the center of the object falls into.
     Each grid cell predicts B bounding boxes as well as C class probabilities. The bounding box prediction has 5 components: (x, y, w, h, confidence). The (x, y) coordinates represent the center of the box, relative to the grid cell location (remember that, if the center of the box does not fall inside the grid cell, than this cell is not responsible for it). These coordinates are normalized to fall between 0 and 1. The (w, h) box dimensions are also normalized to [0, 1], relative to the image size. Let’s look at an example:
@@ -170,12 +168,11 @@
 
         In YOLOv3 and its other versions, the way this prediction map is interpreted is that each cell predicts a fixed number of bounding boxes. Then, whichever cell contains the center of the ground truth box of an object of interest is designated as the cell that will be finally responsible for predicting the object. There is a ton of mathematics behind the inner workings of the prediction architecture.
 
-          * ### Anchor Boxes
+       * ### Anchor Boxes
 
 
             Although anchor boxes, or bounding boxes, were discussed a little bit at the beginning of this article, there is a bit more detail about implementing them and using them with YOLOv3. Object detectors using YOLOv3 usually predict log-space transforms, which are offsets to predefined “default” bounding boxes. Those specific bounding boxes are called anchors. The transforms are later applied to the anchor boxes to receive a prediction.YOLOv3 in particular has three anchors. This results in the prediction of three bounding boxes per cell (the cell is also called a neuron in more technical terms).
-          * ### Non-Maximum Suppression
-
+       * ### Non-Maximum Suppression
 
             Objects can sometimes be detected multiple times when more than one bounding box detects the object as a positive class detection. Non-maximum suppression helps avoid this situation and only passes detections if they haven’t already been detected. Using the NMS threshold value and confidence threshold value, NMS is implemented to prevent double detections. It is an imperative part of using YOLOv3 effectively. Here, we briefly described a few of the features that make the predictions possible, such as anchor boxes and non-maximum suppression (NMS) values. This is, however, not a complete representation of all the features that go into creating a successful prediction with YOLOv3. 
 
@@ -184,7 +181,7 @@
 * ### Images 
 
 
-* ### Video 
+* ### Videos
 
 
 ## Referances 
