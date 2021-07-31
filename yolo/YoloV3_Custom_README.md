@@ -145,7 +145,7 @@
 
     It is also necessary to predict the class probabilities, Pr(Class(i) | Object). This probability is conditioned on the grid cell containing one object (see this if you don’t know that conditional probability means). In practice, it means that if no object is present on the grid cell, the loss function will not penalize it for a wrong class prediction, as we will see later. The network only predicts one set of class probabilities per cell, regardless of the number of boxes B. That makes S x S x C class probabilities in total
 
-    Adding the class predictions to the output vector, we get a ```S x S x (B * 5 +C)`` tensor as output.
+    Adding the class predictions to the output vector, we get a ```S x S x (B * 5 +C)``` tensor as output.
 
 
 * ### <b>How would it work ?</b>
