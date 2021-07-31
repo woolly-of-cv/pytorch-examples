@@ -49,11 +49,13 @@
 
     However, unlike systems like R-CNN and Fast R-CNN, YOLO is trained to do classification and bounding box regression at the same time.
 
- 
-  <p align="center">
-    <img src='assets/YOLOv3_Arch.png'>
-    <b>YOLOv3 Architechture</b><br>
-  </p>
+    <figure align="center">
+        <img src='assets/YOLOv3_Arch.png' />
+        <font size="2">
+        <figcaption> <b>YOLOv3 Architechture</b>
+        </figcaption>
+        </font>
+    </figure>
 
 ```bash
                             ┌────────────┬────────────────────────┬───────────────────┐
@@ -101,27 +103,37 @@
 
 
 
+
     |   Top-1	|   Top-1	|   Top-5		|    Ops	|    BFLOPS/s	|    FPS   |
-    |---	|---	|---	|---	|---	|----   |
+    |---	   |---	|---	|---	|---	|----   |
     |Darknet-19|74.1   	|   91.8	|   7.29	|   1246	|   171    |
     |ResNet-101|   77.1	|   93.7	|   19.7	|   1039	|      53 |
     |ResNet-152|  77.6 	|   93.8	|   	29.4|   1090	|     37  |
     |Darknet-53|  77.2 	|   93.8	|   18.7	|   1357	|    28   |
 
-  <p align="center">
-    <b>Comparison of backbones. Accuracy, billions of operations (Ops), billion floating-point operations per second (BFLOP/s), and frames per second (FPS) for various networks</b><br>
-  </p>
-    We can see from the chart that Darknet-52 is 1.5 times faster than ResNet101. The depicted accuracy doesn’t entail any trade-off between accuracy and speed between Darknet backbones either since it is still as accurate as ResNet-152 yet two times faster.
+
+
+
+    <figure align="center">
+        <figcaption> <b>Comparison of backbones. Accuracy, billions of operations (Ops), billion floating-point operations per second (BFLOP/s), and frames per second (FPS) for various networks</b>
+        </figcaption>
+        </font>
+    </figure>
+
+
 
     YOLOv3 is fast and accurate in terms of mean average precision (mAP) and intersection over union (IOU) values as well. It runs significantly faster than other detection methods with comparable performance (hence the name – You only look once).
 
     Moreover, you can easily trade-off between speed and accuracy simply by changing the model’s size, and no retraining required.
 
+<figure align="center">
+    <img src='assets/YOLOv3_Performance.png' />
+    <font size="2">
+    <figcaption> <b>YOLOv3 Performance </b>
+    </figcaption>
+    </font>
+</figure>
 
-  <p align="center">
-    <img src='assets/YOLOv3_Performance.png'>
-    <b>YOLOv3 Performance </b><br>
-  </p>
 
 
 ## How to prepare your Custom Dataset ? 
@@ -138,9 +150,13 @@
     The first step to understanding YOLO is how it encodes its output. The input image is divided into an S x S grid of cells. For each object that is present on the image, one grid cell is said to be “responsible” for predicting it. That is the cell where the center of the object falls into.
     Each grid cell predicts B bounding boxes as well as C class probabilities. The bounding box prediction has 5 components: (x, y, w, h, confidence). The (x, y) coordinates represent the center of the box, relative to the grid cell location (remember that, if the center of the box does not fall inside the grid cell, than this cell is not responsible for it). These coordinates are normalized to fall between 0 and 1. The (w, h) box dimensions are also normalized to [0, 1], relative to the image size. Let’s look at an example:
 
-    <p align="center">
-        <img src='assets/Annotations.png'>
-    </p>
+    <figure align="center">
+        <img src='assets/Annotations.png' />
+        <font size="2">
+        <figcaption> <b>Annotations of the Custom Class</b>
+        </figcaption>
+        </font>
+    </figure>
 
     It is also necessary to predict the class probabilities, Pr(Class(i) | Object). This probability is conditioned on the grid cell containing one object (see this if you don’t know that conditional probability means). In practice, it means that if no object is present on the grid cell, the loss function will not penalize it for a wrong class prediction, as we will see later. The network only predicts one set of class probabilities per cell, regardless of the number of boxes B. That makes S x S x C class probabilities in total
 
@@ -152,10 +168,13 @@
 
         The precision for small objects in YOLOv2 was incomparable to other algorithms because of how inaccurate YOLO was at detecting small objects. With an AP of 5.0, it paled compared to other algorithms like RetinaNet (21.8) or SSD513 (10.2), which had the second-lowest AP for small objects.
 
-        <p align="center">
-            <img src='assets/YOLOv3_Objects.png'>
-            <b>YOLOv3 comparison for different object sizes showing the average precision (AP) for AP-S (small object size), AP-M (medium object size), AP-L (large object size)</b><br>
-        </p>
+        <figure align="center">
+            <img src='assets/YOLOv3_Objects.png' />
+            <font size="2">
+            <figcaption> <b>YOLOv3 comparison for different object sizes showing the average precision (AP) for AP-S (small object size), AP-M (medium object size), AP-L (large object size)</b>
+            </figcaption>
+            </font>
+        </figure>
 
         The chart above shows the average precision (AP) of detecting small, medium, and large images with various algorithms and backbones. The higher the AP, the more accurate it is for that variable.
 
