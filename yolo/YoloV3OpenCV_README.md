@@ -100,10 +100,11 @@ plt.imshow(img)
 plt.show()
 
 ```
----
 <p align="center">
 <image src='assets/pre.png' >
 </p>
+	
+---
 
 #### Convert Image into Blob
 Its important to note that full image can’t use right away on the network, but first we need it to convert it to blob. Blob it’s used to extract feature from the image and to resize them. YOLO accepts three sizes:
@@ -184,7 +185,10 @@ plt.show()
 <p align="center">
 <image src='assets/post.png' >
 </p>
+	
 ---
+	
 ### References:
 * https://pysource.com/2019/06/27/yolo-object-detection-using-opencv-with-python/
+	
 ---
