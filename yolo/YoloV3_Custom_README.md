@@ -139,8 +139,7 @@
     Each grid cell predicts B bounding boxes as well as C class probabilities. The bounding box prediction has 5 components: (x, y, w, h, confidence). The (x, y) coordinates represent the center of the box, relative to the grid cell location (remember that, if the center of the box does not fall inside the grid cell, than this cell is not responsible for it). These coordinates are normalized to fall between 0 and 1. The (w, h) box dimensions are also normalized to [0, 1], relative to the image size. Let’s look at an example:
 
     <p align="center">
-        <img src='assets/bbox_1.png'>
-        <b>Example of how to calculate box coordinates in a 448x448 image with S=3. Note how the (x,y) coordinates are calculated relative to the center grid cell</b><br>
+        <img src='assets/Annotations.png'>
     </p>
 
     It is also necessary to predict the class probabilities, Pr(Class(i) | Object). This probability is conditioned on the grid cell containing one object (see this if you don’t know that conditional probability means). In practice, it means that if no object is present on the grid cell, the loss function will not penalize it for a wrong class prediction, as we will see later. The network only predicts one set of class probabilities per cell, regardless of the number of boxes B. That makes S x S x C class probabilities in total
@@ -180,7 +179,17 @@
 
 * ### Images 
 
+    <p align="center">
+      <img src='assets/result_1.png'>
+    </p>
 
+    <p align="center">
+      <img src='assets/result_2.png'>
+    </p>
+
+    <p align="center">
+      <img src='assets/result_3.png'>
+    </p>
 * ### Videos
 
 
