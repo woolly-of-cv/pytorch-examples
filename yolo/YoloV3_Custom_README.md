@@ -195,15 +195,7 @@
 * ### Images 
 
     <p align="center">
-      <img src='assets/result_1.png'>
-    </p>
-
-    <p align="center">
-      <img src='assets/result_2.png'>
-    </p>
-
-    <p align="center">
-      <img src='assets/result_3.png'>
+      <img src='assets/result.png'>
     </p>
 * ### Videos
 
