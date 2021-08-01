@@ -56,7 +56,7 @@
         </font>
     </figure>
 
- <h4 align="center">YOLOv3 Architechture</h4>
+ <h4 align="center">YOLOv3 Architecture</h4>
  
  
 ```bash
