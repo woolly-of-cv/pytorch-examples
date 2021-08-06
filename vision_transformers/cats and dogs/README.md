@@ -289,6 +289,29 @@
 
 * ### Graphs 
 * ### Images
+* ### Training Logs
+```
+Epoch : 1  - loss : 0.6969 - acc: 0.5008 - val_loss : 0.6910 - val_acc: 0.5384 
+Epoch : 2  - loss : 0.6898 - acc: 0.5303 - val_loss : 0.6881 - val_acc: 0.5419
+Epoch : 3  - loss : 0.6832 - acc: 0.5568 - val_loss : 0.6890 - val_acc: 0.5506
+Epoch : 4  - loss : 0.6763 - acc: 0.5739 - val_loss : 0.6704 - val_acc: 0.5809
+Epoch : 5  - loss : 0.6695 - acc: 0.5852 - val_loss : 0.6645 - val_acc: 0.5961
+Epoch : 6  - loss : 0.6608 - acc: 0.5971 - val_loss : 0.6620 - val_acc: 0.6058
+Epoch : 7  - loss : 0.6479 - acc: 0.6149 - val_loss : 0.6439 - val_acc: 0.6187
+Epoch : 8  - loss : 0.6421 - acc: 0.6218 - val_loss : 0.6471 - val_acc: 0.6147
+Epoch : 9  - loss : 0.6318 - acc: 0.6356 - val_loss : 0.6284 - val_acc: 0.6394
+Epoch : 10 - loss : 0.6223 - acc: 0.6499 - val_loss : 0.6231 - val_acc: 0.6363
+Epoch : 11 - loss : 0.6192 - acc: 0.6492 - val_loss : 0.6182 - val_acc: 0.6547
+Epoch : 12 - loss : 0.6154 - acc: 0.6524 - val_loss : 0.6233 - val_acc: 0.6386
+Epoch : 13 - loss : 0.6069 - acc: 0.6648 - val_loss : 0.6169 - val_acc: 0.6578
+Epoch : 14 - loss : 0.6017 - acc: 0.6687 - val_loss : 0.6111 - val_acc: 0.6527
+Epoch : 15 - loss : 0.6000 - acc: 0.6710 - val_loss : 0.6247 - val_acc: 0.6379
+Epoch : 16 - loss : 0.5942 - acc: 0.6770 - val_loss : 0.6039 - val_acc: 0.6630
+Epoch : 17 - loss : 0.5895 - acc: 0.6794 - val_loss : 0.6088 - val_acc: 0.6650
+Epoch : 18 - loss : 0.5916 - acc: 0.6750 - val_loss : 0.6048 - val_acc: 0.6620
+Epoch : 19 - loss : 0.5847 - acc: 0.6829 - val_loss : 0.6185 - val_acc: 0.6570
+Epoch : 20 - loss : 0.5807 - acc: 0.6879 - val_loss : 0.6064 - val_acc: 0.6695
+```
 
 ## Referances
 1. https://arxiv.org/abs/2010.11929v2
