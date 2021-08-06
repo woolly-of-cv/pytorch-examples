@@ -288,7 +288,13 @@
 ## Results 
 
 * ### Graphs 
-* ### Images
+
+  <p align="center">
+    <img src='assets/graph.png'>
+
+  </p>
+
+
 * ### Training Logs
 ```
 Epoch : 1  - loss : 0.6969 - acc: 0.5008 - val_loss : 0.6910 - val_acc: 0.5384 
