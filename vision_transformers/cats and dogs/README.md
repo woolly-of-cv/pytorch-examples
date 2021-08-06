@@ -287,7 +287,7 @@
     ```
 ## Results 
 
-* ### Graphs 
+* ### Graph 
 
   <p align="center">
     <img src='assets/graph.png'>
