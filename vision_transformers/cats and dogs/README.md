@@ -45,9 +45,9 @@
 
     As an alternative to raw image patches, the input sequence can be formed from feature maps of a CNN . In this hybrid model, the patch embedding projection ```E``` (from Eq 1) is applied to patches extracted from a CNN feature map. As a special case, the patches can have spatial size ```1x1```, which means that the input sequence is obtained by simply flattening the spatial dimensions of the feature map and projecting to the Transformer dimension. The classification input embedding and position embeddings are added as described above.
 
- * ### <b>Wait !! We should divive deep into what each class does in vision transformer</b>
+ * ### <b> Wait !! We should divive deep into what each class does in vision transformer shouldn't we ? Yes.</b>
 
-    ## Dataset we will be using is Cat's and Dog's and classifying using vison transformer
+    ### Dataset we will be using is Cat's and Dog's and classifying using vison transformer
    
     https://www.kaggle.com/c/dogs-vs-cats-redux-kernels-edition/data
 
