@@ -34,12 +34,12 @@ We evaluate DETR on one of the most popular object detection datasets, COCO, aga
   <image src='assets/e&d_arch.png'>
   </p>
 
-    Image features from the CNN backbone are passed through the transformer encoder, together with spatial positional encoding that are added to queries and keys at every multi- head self-attention layer. Then, the decoder receives queries (initially set to zero), output positional encoding (object queries), and encoder memory, and produces the final set of predicted class labels and bounding boxes through multiple multi- head self-attention and decoder-encoder attention. The first self-attention layer in the first decoder layer can be skipped.
+  Image features from the CNN backbone are passed through the transformer encoder, together with spatial positional encoding that are added to queries and keys at every multi- head self-attention layer. Then, the decoder receives queries (initially set to zero), output positional encoding (object queries), and encoder memory, and produces the final set of predicted class labels and bounding boxes through multiple multi- head self-attention and decoder-encoder attention. The first self-attention layer in the first decoder layer can be skipped.
 
-    * ### Computational Complexity 
+  * ### Computational Complexity 
       Every self-attention in the encoder has complex- ity ```O(d2HW +d(HW )2): O(d′d)``` is the cost of computing a single query/key/value embeddings ```(and Md′ = d)```, while ```O(d′(HW)2)``` is the cost of computing the at- tention weights for one head. Other computations are negligible. In the decoder, each self-attention is in ```O(d2N +dN2)```, and cross-attention between encoder and decoder is in ```O(d2(N +HW)+dNHW)```, which is much lower than the encoder since N ≪ HW in practice.
 
-    * ### FLOPS Computation
+  * ### FLOPS Computation
      Given that the FLOPS for Faster R-CNN depends on the number of proposals in the image, we report the average number of FLOPS for the first 100 images in the COCO 2017 validation set. We compute the FLOPS with the tool flop count operators from Detectron2. We use it without modifications for Detectron2 models, and extend it to take batch matrix multiply (bmm) into account for DETR models.
   * ### What is Bipartite Loss and why ? 
     In bipartite matching loss what we actually do is compare the predicted classes + bounding boxes of each of the N = 100 object queries to the ground truth annotations, padded up to the same length N (so if an image only contains 4 objects, 96 annotations will just have a “no object” as class and “no bounding box” as bounding box). The Hungarian matching algorithm is used to find an optimal one-to-one mapping of each of the N queries to each of the N annotations. Next, standard cross-entropy (for the classes) and a linear combination of the L1 and generalized IoU loss (for the bounding boxes) are used to optimize the parameters of the model.
